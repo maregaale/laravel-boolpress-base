@@ -16,6 +16,8 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
+        dd($posts);
+
     }
 
     /**
@@ -47,7 +49,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        
+        dd($post->comments);
     }
 
     /**
