@@ -36,7 +36,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        
+        // recupero i tag
+        $tags = Tag::all();
+
+        return view('admin.posts.create', compact('tags'));
     }
 
     /**
@@ -47,7 +50,30 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-       
+        // recupero array validazione
+        $validation = $this->validation;
+        $validation['title'] = 'required|string|max:255|unique:posts';
+
+        //validation
+        $request->validate($this->validation);
+
+        $data = $request->all();
+        
+        // controllo checkbox
+        $data['published'] = !isset($data['published']) ? 0 : 1;
+
+        // imposto lo slug 
+        $data['slug'] = Str::slug($data['title'], '-');
+
+        // Insert
+        $newPost = Post::create($data);    
+
+        // tags
+        $newPost->tags()->attach($data['tags']);
+
+        // return
+        return redirect()->route('admin.posts.index')->with('message', 'aggiunto nuovo post');
+
     }
 
     /**
