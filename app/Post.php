@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $guarded = [];
+    protected $guarded = ['tags'];
 
     public function comments() 
     {
@@ -15,6 +15,6 @@ class Post extends Model
 
     public function tags() 
     {
-        return $this->hasMany('App\Tag');
+        return $this->belongsToMany('App\Tag');
     }
 }

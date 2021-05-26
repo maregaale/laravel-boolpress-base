@@ -7,7 +7,13 @@
 @section('content')
 	<p><strong>data:</strong> {{$post->date}}</p>
 	<p><strong>stato:</strong> {{$post->published ? 'pubblicato' : 'non pubblicato'}}</p>
-	<p>{{$post->content}}</p>
+  <div><strong>tags: </strong>
+		@foreach ($post->tags as $tag)
+			<span class="badge badge-success">{{$tag->name}}</span>
+		@endforeach
+	</div>
+  
+	<p class="mt-3"><strong>contenuto:</strong> {{$post->content}}</p>
 	
 	@if ($post->comments->isNotEmpty())
 	<div class="mt-5">
