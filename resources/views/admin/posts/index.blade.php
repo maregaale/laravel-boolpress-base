@@ -27,12 +27,15 @@
         <td>{{$post->published}}</td>
         <td>
           <a href="{{route('admin.posts.show', [ 'post' => $post->id ])}}"><button type="button" class="btn btn-primary">Visualizza</i></button></a>
-          <form class="mt-1" action="{{route('admin.posts.destroy', ['post' => $post->id ])}}" method="POST">
+
+          <form class="mt-1 mb-1" action="{{route('admin.posts.destroy', ['post' => $post->id ])}}" method="POST">
             @method('DELETE')
             @csrf
   
             <button type="submit" class="btn btn-danger">Elimina</i></button></a>
           </form>
+
+          <a href="{{route('admin.posts.edit', [ 'post' => $post->id ])}}"><button type="button" class="btn btn-secondary">Modifica</i></button></a>
         </td>
       </tr>
     @endforeach

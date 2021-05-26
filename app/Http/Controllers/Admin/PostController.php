@@ -93,9 +93,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        // recupero i tag
+        $tags = Tag::all();
+
+        return view('admin.posts.edit', compact('post', 'tags'));
     }
 
     /**
@@ -105,9 +108,32 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        // recupero array validazione
+        $validation = $this->validation;
+        // eccezione
+        $validation['title'] = 'required|string|max:255|unique:posts,title,' . $post->id;
+
+        //validation
+        $request->validate($this->validation);
+
+        $data = $request->all();
+        
+        // controllo checkbox
+        $data['published'] = !isset($data['published']) ? 0 : 1;
+
+        // imposto lo slug 
+        $data['slug'] = Str::slug($data['title'], '-');
+
+        // Insert
+        $post->update($data);    
+
+        // sync
+        $post->tags()->sync($data['tags']);
+
+        // return
+        return redirect()->route('admin.posts.index', $post)->with('message', "modificato il post " . "'" . $post->title . "'");
     }
 
     /**
@@ -120,7 +146,7 @@ class PostController extends Controller
     {
         // detach
         $post->tags()->detach();
-        
+
         // delete
         $post->delete();
 
