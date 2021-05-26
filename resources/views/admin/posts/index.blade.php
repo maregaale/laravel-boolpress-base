@@ -24,7 +24,7 @@
         <td><img src="{{$post->image ? $post->image : 'https://via.placeholder.com/200'}}" alt="{{$post->title}}" style="width: 100px"></td>
         <td>{{$post->title}}</td>
         <td>{{$post->date}}</td>
-        <td>{{$post->published}}</td>
+        <td>{!!$post->published ? '&#10004;' : '&#x2717;'!!}</td>
         <td>
           <a href="{{route('admin.posts.show', [ 'post' => $post->id ])}}"><button type="button" class="btn btn-primary">Visualizza</i></button></a>
 
