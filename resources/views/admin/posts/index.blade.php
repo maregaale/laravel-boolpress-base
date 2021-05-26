@@ -27,6 +27,12 @@
         <td>{{$post->published}}</td>
         <td>
           <a href="{{route('admin.posts.show', [ 'post' => $post->id ])}}"><button type="button" class="btn btn-primary">Visualizza</i></button></a>
+          <form class="mt-1" action="{{route('admin.posts.destroy', ['post' => $post->id ])}}" method="POST">
+            @method('DELETE')
+            @csrf
+  
+            <button type="submit" class="btn btn-danger">Elimina</i></button></a>
+          </form>
         </td>
       </tr>
     @endforeach
