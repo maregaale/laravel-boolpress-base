@@ -69,11 +69,12 @@ class PostController extends Controller
         $newPost = Post::create($data);    
 
         // tags
-        $newPost->tags()->attach($data['tags']);
+        if(isset($data['tags'])) {
+            $newPost->tags()->attach($data['tags']);
+        }
 
         // return
         return redirect()->route('admin.posts.index')->with('message', 'aggiunto nuovo post');
-
     }
 
     /**
@@ -130,6 +131,9 @@ class PostController extends Controller
         $post->update($data);    
 
         // sync
+        if(! isset($data['tags'])) {
+            $data['tags'] = [];
+        }
         $post->tags()->sync($data['tags']);
 
         // return
