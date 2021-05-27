@@ -1,6 +1,6 @@
 <header>
   <div class="container mt-5">
-    <h1 class="text-center">Boolpress</h1>
+    <a class="title" href="{{route('guest.posts.index')}}"><h1 class="text-center">Boolpress</h1></a>
 
     <div class="nav-scroller py-1 mb-2">
       <nav class="nav d-flex justify-content-between">

@@ -10002,6 +10002,9 @@ h3 {
     border-color: #dee2e6;
   }
 }
+header .title:hover {
+  text-decoration: none;
+}
 header h1 {
   color: #000080 !important;
 }

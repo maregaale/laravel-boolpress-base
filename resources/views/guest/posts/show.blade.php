@@ -24,5 +24,24 @@
       </div>
 
     </div>
+
+    <div class="row justify-content-center mt-5">
+      <div class="col-sm-9">
+        <h3>Commenti:</h3>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-sm-9">
+        <ul>
+          @foreach ($post->comments as $comment)
+          <li>
+            <h6>{{$comment->name ? $comment->name : 'Anonimo'}}</h6>
+            <p>{{$comment->content}}</p>
+          </li>
+          @endforeach
+        </ul>
+      </div>
+    </div>
   </div>
 @endsection
