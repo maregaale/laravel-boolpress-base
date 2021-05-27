@@ -2,6 +2,10 @@
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   padding: 40px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  -o-box-shadow: 0 0 10px rgba(0,0,0,0.5);
 
   h2 {
     color: #000080 !important;
