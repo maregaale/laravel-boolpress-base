@@ -15,7 +15,7 @@ class BlogController extends Controller
     public function index ()
     {
         // dati
-        $posts = Post::where('published', 1)->orderBy('date', 'asc')->get();
+        $posts = Post::where('published', 1)->orderBy('date', 'asc')->limit(12)->get();
         $tags = Tag::all();
 
         // return
@@ -61,6 +61,7 @@ class BlogController extends Controller
         // dati
         $tags = Tag::all();
         $tag = Tag::where('slug', $slug)->first();
+
         // controllo 
         if ( $tag == null ) {
             abort(404);
