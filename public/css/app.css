@@ -10049,3 +10049,6 @@ body .col-sm-6 .post .content {
 .post_single h5 {
   color: #b19fc5 !important;
 }
+.post_single input, .post_single textarea {
+  background-color: #D3D3D3;
+}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Tag;
+use App\Comment;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 
@@ -34,5 +35,24 @@ class BlogController extends Controller
 
         // return
         return view('guest.posts.show', compact('post', 'tags'));
+    }
+
+    public function addComment (Request $request, Post $post)
+    {
+        // validation
+        $request->validate([
+            'name' => 'nullable|string',
+            'content' => 'required|string',
+        ]);
+
+        // istanzio nuovo commento
+        $newComment = new Comment();
+        $newComment->name = $request->name;
+        $newComment->content = $request->content;
+        $newComment->post_id = $post->id;
+        $newComment->save();
+
+        // return
+        return back();
     }
 }
