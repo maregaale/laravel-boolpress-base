@@ -55,4 +55,20 @@ class BlogController extends Controller
         // return
         return back();
     }
+
+    public function filterByTag ($slug)
+    {
+        // dati
+        $tags = Tag::all();
+        $tag = Tag::where('slug', $slug)->first();
+        // controllo 
+        if ( $tag == null ) {
+            abort(404);
+        }
+
+        $posts = $tag->posts()->where('published', 1)->get();
+
+        // return
+        return view('guest.posts.index', compact('posts', 'tags'));
+    }
 }
