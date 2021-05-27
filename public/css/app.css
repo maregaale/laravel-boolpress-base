@@ -10002,3 +10002,38 @@ h3 {
     border-color: #dee2e6;
   }
 }
+header h1 {
+  color: #000080 !important;
+}
+header .nav-scroller a {
+  color: blue !important;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+body .col-sm-6 .post {
+  padding: 40px;
+  margin: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  min-height: 250px;
+}
+body .col-sm-6 .post .content {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.post_single {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 40px;
+}
+.post_single h2 {
+  color: #000080 !important;
+}
+.post_single h5 {
+  color: #b19fc5 !important;
+}
