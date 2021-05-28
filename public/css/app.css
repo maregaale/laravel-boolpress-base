@@ -10062,3 +10062,8 @@ body .col-sm-6 .post .content {
 .comments_list .comment .delete_container {
   width: 5%;
 }
+
+.tags th, .tags td:not(.delete_tag) {
+  width: 80% !important;
+  padding-left: 30px !important;
+}
