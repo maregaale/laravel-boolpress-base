@@ -19,11 +19,24 @@
 	<div class="mt-5">
 		<h3>Commenti</h3>
 
-		<ul>
+		<ul class="comments_list">
 			@foreach ($post->comments as $comment)
 				<li>
-					<h5>{{$comment->name ? $comment->name : 'Anonimo'}}</h5>
-					<p>{{$comment->content}}</p>
+					<div class="comment mt-3 bt-3">
+						<div class="comment_container">
+							<h5>{{$comment->name ? $comment->name : 'Anonimo'}}</h5>
+							<p>{{$comment->content}}</p>
+						</div>
+
+						<div class="delete_container mt-3">
+							<form action="{{route('admin.comments.destroy', ['comment' => $comment->id])}}" method="post">
+								@csrf
+								@method('DELETE')
+								
+								<button type="submit" class="btn btn-danger">Elimina</button>
+							</form>
+						</div>
+					</div>
 				</li>
 			@endforeach
 		</ul>

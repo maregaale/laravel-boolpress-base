@@ -1,0 +1,14 @@
+.comments_list {
+
+  .comment {
+    display: flex;
+
+    .comment_container {
+      width: 95%;
+    }
+
+    .delete_container {
+      width: 5%;
+    }
+  }
+}

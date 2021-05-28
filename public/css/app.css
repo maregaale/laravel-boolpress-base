@@ -10052,3 +10052,13 @@ body .col-sm-6 .post .content {
 .post_single input, .post_single textarea {
   background-color: #D3D3D3;
 }
+
+.comments_list .comment {
+  display: flex;
+}
+.comments_list .comment .comment_container {
+  width: 95%;
+}
+.comments_list .comment .delete_container {
+  width: 5%;
+}
