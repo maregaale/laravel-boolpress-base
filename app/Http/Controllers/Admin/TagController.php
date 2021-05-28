@@ -66,7 +66,7 @@ class TagController extends Controller
         }
 
         // return
-        return redirect()->route('admin.tags.index')->with('message', 'aggiunto nuovo tag');
+        return redirect()->route('admin.tags.index')->with('message', 'aggiunto nuovo tag ' . "'" . $newTag->name . "'");
     }
 
     /**
@@ -138,6 +138,6 @@ class TagController extends Controller
         $tag->delete();
 
         // return
-        return redirect()->route('admin.tags.index')->with('message', 'eliminato tag');
+        return redirect()->route('admin.tags.index')->with('message', "eliminato il tag " . "'" . $tag->name . "'");
     }
 }
