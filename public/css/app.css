@@ -10007,13 +10007,17 @@ header .title:hover {
 }
 header h1 {
   color: #000080 !important;
+  font-weight: bold;
 }
 header .nav-scroller a {
   color: blue !important;
+  font-weight: 600;
 }
 
 body {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-image: url("https://storage.googleapis.com/webdesignledger.pub.network/LaT/edd/2016/02/vintage-vignette-tan-paper-texture-1-780x1267.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
   padding-bottom: 50px;
 }
 body .col-sm-6 .post {
@@ -10026,6 +10030,9 @@ body .col-sm-6 .post {
   -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+body .col-sm-6 .post h3 {
+  font-weight: bold;
 }
 body .col-sm-6 .post .content {
   display: -webkit-box;
