@@ -20,7 +20,7 @@
           <p>{{$post->date}}</p>
           <p class="content">{{$post->content}}</p>
 
-          <div>
+          <div class="info">
             <a href="{{route('guest.posts.show', ['slug' => $post->slug])}}">Leggi di più</a>
           </div>
         </div>

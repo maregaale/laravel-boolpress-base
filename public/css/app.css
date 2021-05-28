@@ -10034,6 +10034,9 @@ body .col-sm-6 .post {
 body .col-sm-6 .post h3 {
   font-weight: bold;
 }
+body .col-sm-6 .post .info a {
+  color: blue !important;
+}
 body .col-sm-6 .post .content {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -10054,10 +10057,16 @@ body .col-sm-6 .post .content {
   color: #000080 !important;
 }
 .post_single h5 {
-  color: #b19fc5 !important;
+  color: #6b6077 !important;
 }
 .post_single input, .post_single textarea {
   background-color: #D3D3D3;
+}
+.post_single .comment_incipit, .post_single .comment_add {
+  font-weight: 600;
+}
+.post_single .comment_guest h6 {
+  font-weight: 600;
 }
 
 .comments_list .comment {

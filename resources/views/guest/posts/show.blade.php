@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-md-9">
+      <div class="col-md-9 mt-3 mb-3">
         <h5>{{$post->date}}</h5>
       </div>
     </div>
@@ -25,11 +25,11 @@
 
     <div class="row justify-content-center mt-5">
       <div class="col-sm-9">
-        <h3>Commenti:</h3>
+        <h3 class="comment_incipit mb-3">Commenti:</h3>
       </div>
     </div>
 
-    <div class="row justify-content-center">
+    <div class="comment_guest row justify-content-center">
       <div class="col-sm-9">
         <ul>
           @foreach ($post->comments as $comment)
@@ -44,7 +44,7 @@
 
     <div class="row justify-content-center mt-5">
       <div class="col-sm-9">
-        <h3>Aggiungi Commento:</h3>
+        <h3 class="comment_add">Aggiungi Commento:</h3>
 
         <form action="{{route('guest.posts.add-comment', ['post' => $post->id])}}" method="post">
           @csrf

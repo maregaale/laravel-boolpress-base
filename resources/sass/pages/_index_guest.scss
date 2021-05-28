@@ -22,6 +22,12 @@ body {
         font-weight: bold;
       }
 
+      .info {
+        a {
+          color: blue !important;
+        }
+      }
+
       .content {
         display: -webkit-box;
         -webkit-line-clamp: 2;

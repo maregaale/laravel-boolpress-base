@@ -12,10 +12,21 @@
   }
 
   h5 {
-    color: #b19fc5 !important;
+    color: #6b6077 !important;
   }
 
   input, textarea {
     background-color: #D3D3D3;
   }
+
+  .comment_incipit, .comment_add {
+      font-weight: 600;
+  }
+
+  .comment_guest {
+    h6 {
+      font-weight: 600;
+    }
+  }
+
 }
