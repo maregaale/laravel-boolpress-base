@@ -52,9 +52,10 @@ class BlogController extends Controller
         $newComment->name = $request->name;
         $newComment->content = $request->content;
         $newComment->post_id = $post->id;
+        // $newComment->created_at;
         $newComment->save();
 
-        Mail::to('ale_marega@hotmail.it')->send(new CommentNewMail());
+        Mail::to('ale_marega@hotmail.it')->send(new CommentNewMail($post));
 
         // return
         return back();
