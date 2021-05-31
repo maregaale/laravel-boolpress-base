@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Tag;
@@ -13,7 +14,7 @@ class PostController extends Controller
     protected $validation = [
         'date' => 'required|date',
         'content' => 'required|string',
-        'image' => 'nullable|url'
+        'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048'
     ];
 
     /**
@@ -57,6 +58,7 @@ class PostController extends Controller
         //validation
         $request->validate($this->validation);
 
+
         $data = $request->all();
         
         // controllo checkbox
@@ -64,8 +66,11 @@ class PostController extends Controller
 
         // imposto lo slug 
         $data['slug'] = Str::slug($data['title'], '-');
-
+        
         // Insert
+        if (isset($data['image'])) {
+            $data['image'] = Storage::disk('public')->put('images', $data['image']);
+        }
         $newPost = Post::create($data);    
 
         // tags

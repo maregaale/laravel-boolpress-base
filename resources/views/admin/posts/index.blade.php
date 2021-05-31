@@ -21,7 +21,7 @@
     <tbody>
     @foreach ($posts as $post)
       <tr>
-        <td><img src="{{$post->image ? $post->image : 'https://via.placeholder.com/200'}}" alt="{{$post->title}}" style="width: 100px"></td>
+        <td><img src="{{asset('storage/' . $post->image)}}" alt="{{$post->title}}" style="width: 100px"></td>
         <td>{{$post->title}}</td>
         <td>{{$post->date}}</td>
         <td>{!!$post->published ? '&#10004;' : '&#x2717;'!!}</td>

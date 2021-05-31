@@ -13,7 +13,7 @@ class TagController extends Controller
 {
     // validation
     protected $validation = [
-        'name' => 'required|string|max:50|unique:tags',
+        'name' => 'required|string|max:50|unique:tags', 
     ];
 
     /**
